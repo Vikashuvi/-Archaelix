@@ -11,58 +11,11 @@ if (typeof window !== 'undefined') {
 
 const HomeStacking = () => {
     const containerRef = useRef(null);
-    const waveRef = useRef(null);
-    const waveSvgRef = useRef(null);
-
-    // Colors from the design - updated to match the site theme
-    const colors = {
-        indigo: '#6366F1',
-        cyan: '#06B6D4',
-        dark: '#0F172A',
-        light: '#F8FAFC',
-    };
 
     useEffect(() => {
         const ctx = gsap.context(() => {
 
-            // Squeeze/Wave Effect Animation at the TOP
-            const wavePath = waveRef.current;
-            if (wavePath) {
-                // SVG paths for the squeeze effect (inverted - from top)
-                const paths = {
-                    // Starting state - wave covering the top
-                    initial: "M 0 0 V 100 Q 50 100 100 100 V 0 z",
-                    // Mid state - curved squeeze wave
-                    step1: "M 0 0 V 50 Q 50 100 100 50 V 0 z",
-                    // Final state - fully retracted to top
-                    final: "M 0 0 V 0 Q 50 0 100 0 V 0 z",
-                };
-
-                // Set initial state
-                gsap.set(wavePath, { attr: { d: paths.initial } });
-
-                // Create scroll-triggered animation
-                gsap.timeline({
-                    scrollTrigger: {
-                        trigger: containerRef.current,
-                        start: "top 80%",
-                        end: "top 20%",
-                        scrub: 1,
-                    }
-                })
-                    .to(wavePath, {
-                        attr: { d: paths.step1 },
-                        duration: 0.5,
-                        ease: "power2.inOut",
-                    })
-                    .to(wavePath, {
-                        attr: { d: paths.final },
-                        duration: 0.5,
-                        ease: "power2.out",
-                    });
-            }
-
-            // Existing section animations
+            // Section animations
             const createSectionAnim = (triggerSelector, prevTextSelector, nextTextSelector) => {
                 const tl = gsap.timeline({
                     scrollTrigger: {
@@ -120,35 +73,6 @@ const HomeStacking = () => {
 
     return (
         <section ref={containerRef} className="w-full relative z-10 font-sans">
-
-            {/* Squeeze Wave Effect SVG - Fixed at top of section */}
-            <div className="absolute top-0 left-0 w-full h-[150px] z-20 pointer-events-none overflow-hidden">
-                <svg
-                    ref={waveSvgRef}
-                    viewBox="0 0 100 100"
-                    preserveAspectRatio="none"
-                    className="w-full h-full"
-                >
-                    <defs>
-                        <linearGradient
-                            id="wave-gradient-top"
-                            x1="0%"
-                            y1="0%"
-                            x2="100%"
-                            y2="100%"
-                        >
-                            <stop offset="0%" stopColor="#FFFFFF" />
-                            <stop offset="50%" stopColor="#F8FAFC" />
-                            <stop offset="100%" stopColor="#F1F5F9" />
-                        </linearGradient>
-                    </defs>
-                    <path
-                        ref={waveRef}
-                        fill="url(#wave-gradient-top)"
-                        d="M 0 0 V 100 Q 50 100 100 100 V 0 z"
-                    />
-                </svg>
-            </div>
 
             <div className="relative z-10">
                 {sections.map((section, index) => (

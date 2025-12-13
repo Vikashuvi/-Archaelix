@@ -5,6 +5,7 @@ import HomeHero from "../components/HomeHero";
 import StaggeredMenu from "../components/StaggeredMenu";
 import HomeStacking from "../components/HomeStacking";
 import SplashScreen from "../components/SplashScreen";
+import CTA from "../components/CTA";
 
 export default function Home() {
   const [splashComplete, setSplashComplete] = useState(false);
@@ -38,6 +39,9 @@ export default function Home() {
 
         {/* Hero Section */}
         <HomeHero />
+
+        {/* CTA Section */}
+        <CTA />
 
         {/* Stacking Section */}
         <HomeStacking />
