@@ -1,13 +1,86 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Custom Font Declarations - Founders Grotesk X-Condensed */
+@font-face {
+  font-family: 'FoundersGrotesk';
+  src: url('/fonts/founders-grotesk-xcondensed/TestFoundersGroteskX-Condensed-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FoundersGrotesk';
+  src: url('/fonts/founders-grotesk-xcondensed/TestFoundersGroteskX-Condensed-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FoundersGrotesk';
+  src: url('/fonts/founders-grotesk-xcondensed/TestFoundersGroteskX-Condensed-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FoundersGrotesk';
+  src: url('/fonts/founders-grotesk-xcondensed/TestFoundersGroteskX-Condensed-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FoundersGrotesk';
+  src: url('/fonts/founders-grotesk-xcondensed/TestFoundersGroteskX-Condensed-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('/fonts/neue-montreal/NeueMontreal-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('/fonts/neue-montreal/NeueMontreal-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('/fonts/neue-montreal/NeueMontreal-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueMontreal';
+  src: url('/fonts/neue-montreal/NeueMontreal-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, var(--font-sans), sans-serif;
-  --font-heading: var(--font-heading), sans-serif;
+  --font-sans: 'NeueMontreal', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-heading: 'FoundersGrotesk', "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -48,6 +121,23 @@
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+
+  /* Archaelix Brand Colors - Red-Orange Theme */
+  --primary-white: #FFFFFF;
+  --secondary-red: #f73b20;
+  --secondary-red-dark: #d63118;
+  --secondary-red-light: #ff6347;
+  /* Legacy colors for compatibility */
+  --indigo: #f73b20;
+  --indigo-dark: #d63118;
+  --indigo-light: #ff6347;
+  --cyan: #f73b20;
+  --cyan-dark: #d63118;
+  --cyan-light: #ff6347;
+  --slate-900: #0F172A;
+  --slate-800: #1E293B;
+  --slate-100: #F1F5F9;
+  --slate-50: #F8FAFC;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -117,6 +207,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

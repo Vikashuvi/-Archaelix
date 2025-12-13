@@ -1,8 +1,14 @@
-import FluidReveal from "../components/FluidReveal";
+"use client";
+
+import { useState } from "react";
+import HomeHero from "../components/HomeHero";
 import StaggeredMenu from "../components/StaggeredMenu";
-import StackingSection from "../components/StackingSection";
+import HomeStacking from "../components/HomeStacking";
+import SplashScreen from "../components/SplashScreen";
 
 export default function Home() {
+  const [splashComplete, setSplashComplete] = useState(false);
+
   const menuItems = [
     { label: "Home", link: "/" },
     { label: "Work", link: "/work" },
@@ -11,33 +17,32 @@ export default function Home() {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-black">
-      {/* Hero Section */}
-      <section className="relative w-full h-screen overflow-hidden">
-        <FluidReveal />
+    <>
+      {/* Splash Screen */}
+      <SplashScreen onComplete={() => setSplashComplete(true)} />
 
-        <div className="absolute inset-0 z-50 pointer-events-none">
-          <StaggeredMenu
-            items={menuItems}
-            logoText="ARCHAELIX"
-            menuButtonColor="#fff"
-            openMenuButtonColor="#000"
-            accentColor="#ff0055"
-          />
-        </div>
+      <div className="w-full min-h-screen bg-white">
+        {/* Navigation - Now self-contained fixed overlay */}
+        <StaggeredMenu
+          items={menuItems}
+          socialItems={[
+            { label: "Instagram", link: "#" },
+            { label: "LinkedIn", link: "#" },
+            { label: "Twitter", link: "#" }
+          ]}
+          logoText="ARCHAELIX"
+          menuButtonColor="#0F172A"
+          openMenuButtonColor="#0F172A"
+          accentColor="#f73b20"
+        />
 
-        <main className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
-          <h1 className="text-6xl md:text-9xl font-black text-white mix-blend-difference tracking-tighter text-center font-heading">
-            REVEAL<br />THE UNSEEN
-          </h1>
-          <p className="mt-8 text-lg md:text-xl text-white mix-blend-difference max-w-lg text-center font-light">
-            Move your mouse to explore the hidden layer beneath.
-          </p>
-        </main>
-      </section>
+        {/* Hero Section */}
+        <HomeHero />
 
-      {/* Stacking Section */}
-      <StackingSection />
-    </div>
+        {/* Stacking Section */}
+        <HomeStacking />
+      </div>
+    </>
   );
 }
+
