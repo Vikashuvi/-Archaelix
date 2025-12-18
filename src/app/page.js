@@ -9,6 +9,8 @@ import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 import SmoothScroll from "../components/SmoothScroll";
 import CEONote from "../components/CEONote";
+import Ready from "../components/Ready/Ready";
+
 
 export default function Home() {
   const [splashComplete, setSplashComplete] = useState(false);
@@ -55,8 +57,12 @@ export default function Home() {
         {/* CEO Note Section */}
         <CEONote />
 
+        {/* Ready Section */}
+        <Ready />
+
         {/* Footer Section */}
         <Footer />
+
       </div>
     </>
   );

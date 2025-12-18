@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const CEONote = () => {
     const sectionRef = useRef(null);
-    const containerRef = useRef(null);
     const titleRef = useRef(null);
     const imageRevealRef = useRef(null);
     const textContentRef = useRef(null);
@@ -17,64 +16,50 @@ const CEONote = () => {
         }
 
         const ctx = gsap.context(() => {
-            // Background reveal animation
-            gsap.fromTo(containerRef.current,
-                { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
-                {
-                    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: "top bottom",
-                        end: "top top",
-                        scrub: true,
-                    }
-                }
-            );
-
-            // Title movement
+            // Title animation - clean slide up
             gsap.fromTo(titleRef.current,
-                { x: -100, opacity: 0 },
-                {
-                    x: 0,
-                    opacity: 1,
-                    duration: 1.5,
-                    ease: "power4.out",
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: "top 40%",
-                    }
-                }
-            );
-
-            // Image reveal from center
-            gsap.fromTo(imageRevealRef.current,
-                { scale: 1.5, opacity: 0 },
-                {
-                    scale: 1,
-                    opacity: 1,
-                    duration: 2,
-                    ease: "expo.out",
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: "top 30%",
-                    }
-                }
-            );
-
-            // Staggered text reveal
-            const items = textContentRef.current.children;
-            gsap.fromTo(items,
                 { y: 50, opacity: 0 },
                 {
                     y: 0,
                     opacity: 1,
+                    duration: 1.2,
+                    ease: "power4.out",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 60%",
+                    }
+                }
+            );
+
+            // Image reveal - subtle scale and fade
+            gsap.fromTo(imageRevealRef.current,
+                { scale: 0.9, opacity: 0, y: 30 },
+                {
+                    scale: 1,
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.5,
+                    ease: "expo.out",
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top 50%",
+                    }
+                }
+            );
+
+            // Staggered text content reveal
+            const items = textContentRef.current.children;
+            gsap.fromTo(items,
+                { y: 30, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
                     duration: 1,
-                    stagger: 0.2,
+                    stagger: 0.15,
                     ease: "power3.out",
                     scrollTrigger: {
                         trigger: sectionRef.current,
-                        start: "top 20%",
+                        start: "top 40%",
                     }
                 }
             );
@@ -87,18 +72,17 @@ const CEONote = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full h-screen bg-white overflow-hidden flex items-center justify-center font-sans"
+            className="relative w-full min-h-screen bg-[#f73b20] overflow-hidden flex items-center justify-center font-sans py-20"
         >
-            <div
-                ref={containerRef}
-                className="absolute inset-0 bg-[#f73b20] z-0"
-            />
+            <div className="relative w-full h-full max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-center z-10 px-8 md:px-20 gap-12 lg:gap-0">
 
-            <div className="relative w-full h-full max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-center z-10 px-8 md:px-20">
 
                 {/* BIG BACKDROP TEXT */}
-                <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full pointer-events-none overflow-hidden opacity-10">
-                    <h2 className="text-[35vw] font-bold font-heading leading-none text-white whitespace-nowrap uppercase italic tracking-tighter">
+                <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full pointer-events-none overflow-hidden opacity-5">
+                    <h2
+                        className="text-[35vw] font-bold leading-none text-white whitespace-nowrap uppercase italic tracking-tighter"
+                        style={{ fontFamily: "'FoundersGrotesk', sans-serif" }}
+                    >
                         VISIONARY
                     </h2>
                 </div>
@@ -106,9 +90,9 @@ const CEONote = () => {
                 {/* LEFT DECOR - BIG NUMBER */}
                 <div className="hidden lg:block lg:col-span-2 relative">
                     <div className="flex flex-col items-center">
-                        <span className="text-[12vw] font-bold font-heading text-white/20 leading-none">01</span>
-                        <div className="w-[1px] h-32 bg-white/30 my-8" />
-                        <span className="[writing-mode:vertical-rl] text-white/50 uppercase tracking-[0.5em] text-xs font-bold">Archaelix Spirit</span>
+                        <span className="text-[10vw] font-bold text-white/10 leading-none" style={{ fontFamily: "'FoundersGrotesk', sans-serif" }}>01</span>
+                        <div className="w-[1px] h-32 bg-white/20 my-8" />
+                        <span className="[writing-mode:vertical-rl] text-white/40 uppercase tracking-[0.5em] text-[10px] font-bold font-sans">Archaelix Spirit</span>
                     </div>
                 </div>
 
@@ -116,63 +100,69 @@ const CEONote = () => {
                 <div className="col-span-1 lg:col-span-5 relative flex justify-center">
                     <div
                         ref={imageRevealRef}
-                        className="relative w-[320px] h-[450px] md:w-[480px] md:h-[650px] overflow-hidden rounded-[2rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] bg-white p-4"
+                        className="relative w-[300px] h-[420px] md:w-[450px] md:h-[600px] overflow-hidden rounded-[2.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.4)] bg-white p-3"
                     >
-                        <div className="w-full h-full rounded-[1.5rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+                        <div className="w-full h-full rounded-[2rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000">
                             <img
                                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
                                 alt="CEO"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                             />
                         </div>
                         {/* Floating Badge */}
-                        <div className="absolute bottom-12 -right-8 bg-white text-[#f73b20] py-6 px-10 rounded-2xl shadow-xl transform rotate-3">
-                            <p className="text-4xl font-bold font-heading leading-none">CEO</p>
-                            <p className="text-[10px] uppercase font-bold tracking-widest mt-1">Founder Note</p>
+                        <div
+                            className="absolute bottom-10 -right-6 bg-white text-[#f73b20] py-5 px-8 rounded-2xl shadow-2xl transform rotate-2"
+                            style={{ fontFamily: "'FoundersGrotesk', sans-serif" }}
+                        >
+                            <p className="text-4xl font-bold leading-none">CEO</p>
+                            <p className="text-[9px] uppercase font-bold tracking-[0.2em] mt-2 opacity-70">Founder Note</p>
                         </div>
                     </div>
                 </div>
 
                 {/* RIGHT - CONTENT */}
-                <div className="col-span-1 lg:col-span-5 relative z-10 lg:pl-12 mt-12 lg:mt-0">
+                <div className="col-span-1 lg:col-span-5 relative z-10 lg:pl-16">
                     <div ref={textContentRef} className="flex flex-col gap-10">
 
                         <div className="flex flex-col gap-4">
-                            <h3 className="text-white text-base font-bold uppercase tracking-[0.3em]">The Philosophy</h3>
-                            <div className="w-20 h-[2px] bg-white opacity-40" />
+                            <h3 className="text-white text-xs md:text-sm font-bold uppercase tracking-[0.4em] opacity-80">The Philosophy</h3>
+                            <div className="w-16 h-[2px] bg-white opacity-30" />
                         </div>
 
                         <h2
                             ref={titleRef}
-                            className="text-[8vw] lg:text-[5vw] font-bold text-white leading-[0.9] font-heading uppercase italic"
+                            className="text-[10vw] lg:text-[5.5vw] font-bold text-white leading-[0.85] uppercase italic"
+                            style={{ fontFamily: "'FoundersGrotesk', sans-serif" }}
                         >
                             Defining <br />
-                            <span className="text-[#0F172A] mix-blend-overlay">The Digital</span> <br />
+                            The Digital <br />
                             Standard.
                         </h2>
 
-                        <div className="flex flex-col gap-8 max-w-md">
-                            <p className="text-white/90 text-lg md:text-xl font-sans leading-relaxed tracking-tight">
+
+                        <div className="flex flex-col gap-8 max-w-lg">
+                            <p className="text-white/90 text-lg md:text-xl font-medium leading-relaxed tracking-tight" style={{ fontFamily: "'NeueMontreal', sans-serif" }}>
                                 "We don't just build websites; we architect emotional connections in a digital landscape that often feels too cold."
                             </p>
 
                             <div className="flex items-center gap-6">
                                 <div className="flex flex-col">
-                                    <span className="text-white text-3xl font-bold font-heading uppercase leading-none tracking-tight">Vikashuvi</span>
-                                    <span className="text-white/60 text-xs font-bold uppercase tracking-widest mt-2">Visionary & Founder</span>
+                                    <span className="text-white text-2xl md:text-3xl font-bold uppercase leading-none tracking-tight" style={{ fontFamily: "'FoundersGrotesk', sans-serif" }}>Vikashuvi</span>
+                                    <span className="text-white/50 text-[10px] uppercase font-bold tracking-[0.3em] mt-3">Visionary & Founder</span>
                                 </div>
                             </div>
                         </div>
 
                         {/* ACTION - SIGNATURE STYLE */}
                         <div className="mt-4">
-                            <div className="inline-flex items-center gap-4 group cursor-pointer">
-                                <div className="w-14 h-14 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white transition-all duration-300">
-                                    <svg className="w-6 h-6 text-white group-hover:text-[#f73b20] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="inline-flex items-center gap-5 group cursor-pointer">
+                                <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all duration-500 overflow-hidden relative">
+                                    <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                                    <svg className="w-6 h-6 text-white group-hover:text-[#f73b20] transition-colors relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
                                 </div>
-                                <span className="text-white uppercase font-bold tracking-widest text-xs group-hover:translate-x-2 transition-transform duration-300">Read Full Story</span>
+                                <span className="text-white uppercase font-bold tracking-[0.2em] text-[10px] group-hover:translate-x-3 transition-transform duration-500">Read Full Story</span>
                             </div>
                         </div>
 
@@ -181,20 +171,18 @@ const CEONote = () => {
 
             </div>
 
-            {/* DECORATIVE ELEMENTS */}
-            <div className="absolute top-12 right-12 w-32 h-32 border-[1px] border-white/10 rounded-full animate-spin-slow hidden lg:block" />
-
             <style jsx>{`
-        .animate-spin-slow {
-          animation: spin 20s linear infinite;
-        }
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
+                .animate-spin-slow {
+                    animation: spin 25s linear infinite;
+                }
+                @keyframes spin {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+            `}</style>
         </section>
     );
 };
 
 export default CEONote;
+
