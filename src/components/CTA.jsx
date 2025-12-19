@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
+import RoundButton from './RoundButton';
 
 const CTA = () => {
     const [scrollProgress, setScrollProgress] = useState(0);
@@ -169,20 +170,18 @@ const CTA = () => {
                 </h2>
 
                 {/* CTA Button */}
-                <button
+                <RoundButton
                     onClick={() => setIsModalOpen(true)}
-                    className="px-8 py-4 text-lg font-bold text-white bg-[#f73b20] rounded-full cursor-pointer hover:scale-105 hover:shadow-lg transition-all duration-300"
+                    title="Start Your Project"
+                    variant="primary"
                     style={{
                         opacity: calculateOpacity(scrollProgress),
                         transform: `scale(${scrollProgress > 0.5 ? 1 : 0.9})`,
                         transition: isScrollingDown
                             ? 'opacity 0.3s ease-in, transform 0.3s ease-in'
                             : 'opacity 0.08s ease-out, transform 0.08s ease-out',
-                        fontFamily: "'NeueMontreal', sans-serif"
                     }}
-                >
-                    Start Your Project
-                </button>
+                />
             </div>
 
             {/* Modal */}

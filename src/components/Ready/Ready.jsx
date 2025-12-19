@@ -36,8 +36,7 @@ export default function Ready() {
                     <RoundButton
                         href="/contact"
                         title="start the project"
-                        className="bg-[#0F172A] text-white"
-                        bgcolor="#f73b20"
+                        variant="dark"
                     />
                     <p
                         className="text-[20px] text-[#f73b20] font-medium"

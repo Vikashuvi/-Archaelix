@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import RoundButton from "./RoundButton";
 
 const CEONote = () => {
     const sectionRef = useRef(null);
@@ -153,17 +154,13 @@ const CEONote = () => {
                             </div>
                         </div>
 
-                        {/* ACTION - SIGNATURE STYLE */}
-                        <div className="mt-4">
-                            <div className="inline-flex items-center gap-5 group cursor-pointer">
-                                <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all duration-500 overflow-hidden relative">
-                                    <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                                    <svg className="w-6 h-6 text-white group-hover:text-[#f73b20] transition-colors relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg>
-                                </div>
-                                <span className="text-white uppercase font-bold tracking-[0.2em] text-[10px] group-hover:translate-x-3 transition-transform duration-500">Read Full Story</span>
-                            </div>
+                        {/* ACTION - Standardized RoundButton */}
+                        <div className="mt-8">
+                            <RoundButton
+                                title="Read Full Story"
+                                href="/about"
+                                variant="dark"
+                            />
                         </div>
 
                     </div>

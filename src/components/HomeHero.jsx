@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import RoundButton from "./RoundButton";
 
 const HomeHero = () => {
   const heroRef = useRef(null);
@@ -128,18 +129,14 @@ const HomeHero = () => {
             From concept to conversion
           </p>
 
+
+
           {/* CTA Button */}
-          <button
-            className="group flex items-center gap-3 px-6 py-3 rounded-full border border-[#0F172A] text-[#0F172A] hover:bg-[#0F172A] hover:text-white transition-all duration-300"
-            style={{ fontFamily: "'NeueMontreal', sans-serif", fontWeight: 500 }}
-          >
-            <span className="text-sm md:text-base uppercase tracking-wide">Start The Project</span>
-            <span className="w-8 h-8 rounded-full border border-current flex items-center justify-center group-hover:bg-white group-hover:text-[#0F172A] transition-all duration-300">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-              </svg>
-            </span>
-          </button>
+          <RoundButton
+            title="Start The Project"
+            href="/contact"
+            variant="primary"
+          />
         </div>
       </div>
 
