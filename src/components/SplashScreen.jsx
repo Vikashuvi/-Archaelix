@@ -100,9 +100,9 @@ const SplashScreen = ({ onComplete }) => {
                         x2="100%"
                         y2="100%"
                     >
-                        <stop offset="0%" stopColor="#ff6347" />
-                        <stop offset="50%" stopColor="#f73b20" />
-                        <stop offset="100%" stopColor="#d63118" />
+                        <stop offset="0%" stopColor="#f2423e" />
+                        <stop offset="50%" stopColor="#df1612" />
+                        <stop offset="100%" stopColor="#b7120e" />
                     </linearGradient>
                 </defs>
                 <path

@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="w-full bg-[#f73b20] text-white pt-32 pb-12 px-8 md:px-16 overflow-hidden">
+        <footer className="w-full bg-[#df1612] text-white pt-32 pb-12 px-8 md:px-16 overflow-hidden">
             <div className="w-full">
                 {/* Top Section with Links */}
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 mb-32">

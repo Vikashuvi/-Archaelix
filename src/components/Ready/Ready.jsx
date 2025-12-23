@@ -26,7 +26,7 @@ export default function Ready() {
             <div className="w-full h-full flex justify-center gap-[50px] items-center flex-col">
                 <div className="flex flex-col gap-[10px]">
                     <h1
-                        className="text-[17vw] leading-[0.85] tracking-tight text-center font-semibold uppercase pointer-events-none text-[#f73b20]"
+                        className="text-[17vw] leading-[0.85] tracking-tight text-center font-semibold uppercase pointer-events-none text-[#df1612]"
                         style={{ fontFamily: "'FoundersGrotesk', sans-serif" }}
                     >
                         <TextMask>{phrase}</TextMask>
@@ -39,21 +39,21 @@ export default function Ready() {
                         variant="dark"
                     />
                     <p
-                        className="text-[20px] text-[#f73b20] font-medium"
+                        className="text-[20px] text-[#df1612] font-medium"
                         style={{ fontFamily: "'NeueMontreal', sans-serif" }}
                     >
                         OR
                     </p>
-                    <div className="flex items-center justify-between bg-transparent cursor-pointer rounded-full group border border-[#f73b20]">
+                    <div className="flex items-center justify-between bg-transparent cursor-pointer rounded-full group border border-[#df1612]">
                         <Link
                             className="xl:text-[18px] uppercase font-normal"
                             href="/contact">
-                            <Rounded className="py-[6px]" backgroundColor="#f73b20">
-                                <p className="z-10 px-[15px] ml-[15px] py-[6px] group-hover:text-white text-[#f73b20] font-medium" style={{ fontFamily: "'NeueMontreal', sans-serif" }}>
+                            <Rounded className="py-[6px]" backgroundColor="#df1612">
+                                <p className="z-10 px-[15px] ml-[15px] py-[6px] group-hover:text-white text-[#df1612] font-medium" style={{ fontFamily: "'NeueMontreal', sans-serif" }}>
                                     hello@archaelix.design
                                 </p>
-                                <div className="bg-[#f73b20] group-hover:bg-white text-white p-[10px] rounded-full scale-[0.3] mr-[10px] group-hover:scale-[0.9] transition-all z-10 transform duration-[0.3s] flex items-center justify-center">
-                                    <ArrowUpRight strokeWidth={1.5} size={30} className="scale-[0] group-hover:scale-[1] group-hover:text-[#f73b20]" />
+                                <div className="bg-[#df1612] group-hover:bg-white text-white p-[10px] rounded-full scale-[0.3] mr-[10px] group-hover:scale-[0.9] transition-all z-10 transform duration-[0.3s] flex items-center justify-center">
+                                    <ArrowUpRight strokeWidth={1.5} size={30} className="scale-[0] group-hover:scale-[1] group-hover:text-[#df1612]" />
                                 </div>
                             </Rounded>
                         </Link>

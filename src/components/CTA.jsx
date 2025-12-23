@@ -198,7 +198,7 @@ const CTA = () => {
                         {/* Close Button */}
                         <button
                             onClick={() => setIsModalOpen(false)}
-                            className="absolute -top-4 -right-4 bg-black border-2 border-white/20 rounded-full text-white w-8 h-8 text-xl cursor-pointer flex items-center justify-center z-[1001] hover:rotate-90 hover:scale-110 hover:border-white/40 hover:bg-gradient-to-r hover:from-[#f73b20] hover:to-[#d63118] transition-all duration-200"
+                            className="absolute -top-4 -right-4 bg-black border-2 border-white/20 rounded-full text-white w-8 h-8 text-xl cursor-pointer flex items-center justify-center z-[1001] hover:rotate-90 hover:scale-110 hover:border-white/40 hover:bg-gradient-to-r hover:from-[#df1612] hover:to-[#b7120e] transition-all duration-200"
                         >
                             ×
                         </button>
@@ -278,7 +278,7 @@ const CTA = () => {
 
                             <button
                                 type="submit"
-                                className="w-full h-12 bg-gradient-to-r from-[#f73b20] to-[#d63118] rounded-lg text-sm text-white uppercase tracking-wider transition-all duration-300 hover:opacity-90 font-semibold"
+                                className="w-full h-12 bg-gradient-to-r from-[#df1612] to-[#b7120e] rounded-lg text-sm text-white uppercase tracking-wider transition-all duration-300 hover:opacity-90 font-semibold"
                             >
                                 Submit
                             </button>

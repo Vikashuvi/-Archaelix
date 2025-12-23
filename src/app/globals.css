@@ -124,16 +124,16 @@
 
   /* Archaelix Brand Colors - Red-Orange Theme */
   --primary-white: #FFFFFF;
-  --secondary-red: #f73b20;
-  --secondary-red-dark: #d63118;
-  --secondary-red-light: #ff6347;
+  --secondary-red: #df1612;
+  --secondary-red-dark: #b7120e;
+  --secondary-red-light: #f2423e;
   /* Legacy colors for compatibility */
-  --indigo: #f73b20;
-  --indigo-dark: #d63118;
-  --indigo-light: #ff6347;
-  --cyan: #f73b20;
-  --cyan-dark: #d63118;
-  --cyan-light: #ff6347;
+  --indigo: #df1612;
+  --indigo-dark: #b7120e;
+  --indigo-light: #f2423e;
+  --cyan: #df1612;
+  --cyan-dark: #b7120e;
+  --cyan-light: #f2423e;
   --slate-900: #0F172A;
   --slate-800: #1E293B;
   --slate-100: #F1F5F9;

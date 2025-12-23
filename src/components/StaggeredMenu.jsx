@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 
 const StaggeredMenu = ({
   position = 'right',
-  colors = ['#f73b20', '#d63118'], // Kept your theme colors
+  colors = ['#df1612', '#b7120e'], // Kept your theme colors
   items = [],
   socialItems = [],
   displaySocials = true,
@@ -17,7 +17,7 @@ const StaggeredMenu = ({
   openMenuButtonColor = '#0F172A',
   changeMenuColorOnOpen = true,
   isFixed = false,
-  accentColor = '#f73b20',
+  accentColor = '#df1612',
   closeOnClickAway = true,
   onMenuOpen,
   onMenuClose
@@ -340,7 +340,7 @@ const StaggeredMenu = ({
           className="sm-prelayers absolute top-0 right-0 bottom-0 pointer-events-none z-[5]"
           aria-hidden="true">
           {(() => {
-            const raw = colors && colors.length ? colors.slice(0, 4) : ['#f73b20', '#d63118'];
+            const raw = colors && colors.length ? colors.slice(0, 4) : ['#df1612', '#b7120e'];
             return raw.map((c, i) => (
               <div
                 key={i}
@@ -429,7 +429,7 @@ const StaggeredMenu = ({
                       data-index={idx + 1}
                       onClick={closeMenu}>
                       <span
-                        className="sm-panel-itemLabel inline-block will-change-transform group-hover:text-[#f73b20] transition-colors"
+                        className="sm-panel-itemLabel inline-block will-change-transform group-hover:text-[#df1612] transition-colors"
                         style={{ fontFamily: 'FoundersGrotesk, sans-serif' }}>
                         {it.label}
                       </span>
@@ -454,7 +454,7 @@ const StaggeredMenu = ({
                         href={s.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="sm-socials-link text-sm font-medium text-slate-900 no-underline relative inline-block py-[2px] transition-colors hover:text-[#f73b20]">
+                        className="sm-socials-link text-sm font-medium text-slate-900 no-underline relative inline-block py-[2px] transition-colors hover:text-[#df1612]">
                         {s.label}
                       </a>
                     </li>
@@ -481,7 +481,7 @@ const StaggeredMenu = ({
 .sm-scope .sm-prelayers { position: absolute; top: 0; right: 0; bottom: 0; width: clamp(260px, 38vw, 420px); pointer-events: none; z-index: 5; }
 .sm-scope .sm-prelayer { position: absolute; top: 0; right: 0; height: 100%; width: 100%; transform: translateX(0); }
 .sm-scope .sm-panel-list[data-numbering] { counter-reset: smItem; }
-.sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { counter-increment: smItem; content: counter(smItem, decimal-leading-zero); position: absolute; top: 0.1em; right: 3.2em; font-size: 18px; font-weight: 400; color: var(--sm-accent, #f73b20); letter-spacing: 0; pointer-events: none; user-select: none; opacity: var(--sm-num-opacity, 0); }
+.sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { counter-increment: smItem; content: counter(smItem, decimal-leading-zero); position: absolute; top: 0.1em; right: 3.2em; font-size: 18px; font-weight: 400; color: var(--sm-accent, #df1612); letter-spacing: 0; pointer-events: none; user-select: none; opacity: var(--sm-num-opacity, 0); }
 @media (max-width: 1024px) { .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; } }
 @media (max-width: 640px) { .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; } }
       `}</style>

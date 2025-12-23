@@ -76,7 +76,7 @@ const HomeHero = () => {
             {/* Small video/image badge */}
             <div
               className="relative w-[16vw] sm:w-[14vw] md:w-[12vw] h-[8vw] sm:h-[7vw] md:h-[7vw] lg:h-[6.5vw] rounded-md overflow-hidden flex-shrink-0 mt-[1vw]"
-              style={{ background: 'linear-gradient(135deg, #f73b20 0%, #d63118 100%)' }}
+              style={{ background: 'linear-gradient(135deg, #df1612 0%, #b7120e 100%)' }}
             >
               <div className="absolute inset-0 flex items-center justify-center">
                 <svg className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -84,7 +84,7 @@ const HomeHero = () => {
                 </svg>
               </div>
               {/* Decorative elements */}
-              <div className="absolute bottom-1 left-1 w-6 h-4 sm:w-8 sm:h-6 md:w-10 md:h-8 bg-[#f73b20] rounded-sm opacity-80" />
+              <div className="absolute bottom-1 left-1 w-6 h-4 sm:w-8 sm:h-6 md:w-10 md:h-8 bg-[#df1612] rounded-sm opacity-80" />
               <div className="absolute bottom-1.5 left-2 sm:bottom-2 sm:left-3 w-4 h-3 sm:w-6 sm:h-4 md:w-8 md:h-6 bg-white/90 rounded-sm" />
             </div>
             <h1

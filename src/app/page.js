@@ -42,7 +42,7 @@ export default function Home() {
           logoText="archaelix"
           menuButtonColor="#0F172A"
           openMenuButtonColor="#0F172A"
-          accentColor="#f73b20"
+          accentColor="#df1612"
         />
 
         {/* Hero Section */}

@@ -13,34 +13,34 @@ import { ArrowUpRight } from "lucide-react";
  */
 const variants = {
     primary: {
-        className: "bg-[#f73b20] text-white",
+        className: "bg-[#df1612] text-white",
         bgcolor: "#0F172A", // Hover background turns black
-        iconColor: "text-[#f73b20]",
+        iconColor: "text-[#df1612]",
         hoverIconColor: "group-hover:text-[#0F172A]"
     },
     dark: {
         className: "bg-[#0F172A] text-white",
-        bgcolor: "#f73b20", // Hover background turns orange
+        bgcolor: "#df1612", // Hover background turns orange
         iconColor: "text-[#0F172A]",
-        hoverIconColor: "group-hover:text-[#f73b20]"
+        hoverIconColor: "group-hover:text-[#df1612]"
     },
     darkWhite: {
         className: "bg-[#0F172A] text-white",
-        bgcolor: "#f73b20", // Hover background turns primary
+        bgcolor: "#df1612", // Hover background turns primary
         iconColor: "text-[#0F172A]",
-        hoverIconColor: "group-hover:text-[#f73b20]"
+        hoverIconColor: "group-hover:text-[#df1612]"
     },
     white: {
         className: "bg-white text-[#0F172A] border border-[#eee]",
-        bgcolor: "#f73b20", // Hover background turns orange
+        bgcolor: "#df1612", // Hover background turns orange
         iconColor: "text-[#0F172A]",
-        hoverIconColor: "group-hover:text-[#f73b20]"
+        hoverIconColor: "group-hover:text-[#df1612]"
     },
     orange: {
-        className: "bg-[#f73b20] text-white",
+        className: "bg-[#df1612] text-white",
         bgcolor: "white", // Hover background turns white
-        iconColor: "text-[#f73b20]",
-        hoverIconColor: "group-hover:text-[#f73b20]"
+        iconColor: "text-[#df1612]",
+        hoverIconColor: "group-hover:text-[#df1612]"
     }
 };
 

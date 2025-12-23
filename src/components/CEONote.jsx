@@ -73,7 +73,7 @@ const CEONote = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full min-h-screen bg-[#f73b20] overflow-hidden flex items-center justify-center font-sans py-20"
+            className="relative w-full min-h-screen bg-[#df1612] overflow-hidden flex items-center justify-center font-sans py-20"
         >
             <div className="relative w-full h-full max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-12 items-center z-10 px-8 md:px-20 gap-12 lg:gap-0">
 
@@ -112,7 +112,7 @@ const CEONote = () => {
                         </div>
                         {/* Floating Badge */}
                         <div
-                            className="absolute bottom-10 -right-6 bg-white text-[#f73b20] py-5 px-8 rounded-2xl shadow-2xl transform rotate-2"
+                            className="absolute bottom-10 -right-6 bg-white text-[#df1612] py-5 px-8 rounded-2xl shadow-2xl transform rotate-2"
                             style={{ fontFamily: "'FoundersGrotesk', sans-serif" }}
                         >
                             <p className="text-4xl font-bold leading-none">CEO</p>
