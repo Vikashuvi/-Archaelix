@@ -351,7 +351,7 @@ const StaggeredMenu = ({
         </div>
 
         <header
-          className="staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-between py-4 sm:py-6 md:py-8 px-4 sm:px-6 md:px-12 lg:px-20 bg-transparent pointer-events-none z-20 overflow-visible"
+          className="staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-between py-6 md:py-8 px-[5vw] md:px-12 lg:px-20 bg-transparent pointer-events-none z-20 overflow-visible"
           aria-label="Main navigation header">
           <div
             className="sm-logo flex items-center select-none pointer-events-auto"
@@ -379,10 +379,10 @@ const StaggeredMenu = ({
             onClick={toggleMenu}
             type="button">
 
-            {/* FIXED TEXT CONTAINER */}
+            {/* DESKTOP TEXT - Hidden on mobile */}
             <span
               ref={textWrapRef}
-              className="sm-toggle-textWrap relative inline-block h-[40px] overflow-hidden whitespace-nowrap min-w-[50px] mr-2"
+              className="sm-toggle-textWrap relative hidden md:inline-block h-[40px] overflow-hidden whitespace-nowrap min-w-[50px] mr-2"
               aria-hidden="true">
               <span
                 ref={textInnerRef}
@@ -393,9 +393,34 @@ const StaggeredMenu = ({
               </span>
             </span>
 
+            {/* MOBILE HAMBURGER ICON - Visible only on mobile */}
+            <span className="md:hidden relative w-[22px] h-[16px] block" aria-hidden="true">
+              <span
+                className="absolute left-0 w-full h-[2px] bg-current rounded-[2px] transition-all duration-300"
+                style={{
+                  top: open ? '7px' : '0px',
+                  transform: open ? 'rotate(45deg)' : 'rotate(0deg)'
+                }}
+              />
+              <span
+                className="absolute left-0 top-[7px] w-full h-[2px] bg-current rounded-[2px] transition-opacity duration-300"
+                style={{
+                  opacity: open ? 0 : 1
+                }}
+              />
+              <span
+                className="absolute left-0 w-full h-[2px] bg-current rounded-[2px] transition-all duration-300"
+                style={{
+                  bottom: open ? '7px' : '0px',
+                  transform: open ? 'rotate(-45deg)' : 'rotate(0deg)'
+                }}
+              />
+            </span>
+
+            {/* DESKTOP PLUS ICON - Hidden on mobile */}
             <span
               ref={iconRef}
-              className="sm-icon relative w-[14px] h-[14px] shrink-0 inline-flex items-center justify-center"
+              className="sm-icon relative hidden md:inline-flex w-[14px] h-[14px] shrink-0 items-center justify-center"
               aria-hidden="true">
               <span
                 ref={plusHRef}
@@ -468,7 +493,9 @@ const StaggeredMenu = ({
       <style>{`
 .sm-scope { overflow: visible !important; }
 .sm-scope .staggered-menu-wrapper { position: relative; width: 100%; height: 100%; z-index: 40; }
-.sm-scope .staggered-menu-header { position: absolute; top: 0; left: 0; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 2rem 5rem; background: transparent; pointer-events: none; z-index: 20; }
+.sm-scope .staggered-menu-header { position: absolute; top: 0; left: 0; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 5vw; background: transparent; pointer-events: none; z-index: 20; }
+@media (min-width: 768px) { .sm-scope .staggered-menu-header { padding: 2rem 3rem; } }
+@media (min-width: 1024px) { .sm-scope .staggered-menu-header { padding: 2rem 5rem; } }
 .sm-scope .staggered-menu-header > * { pointer-events: auto; }
 .sm-scope .sm-logo { display: flex; align-items: center; user-select: none; }
 .sm-scope .sm-logo-img { display: block; height: 32px; width: auto; object-fit: contain; }

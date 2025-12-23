@@ -58,13 +58,13 @@ const HomeHero = () => {
       className="relative w-full min-h-screen bg-white overflow-hidden flex flex-col"
     >
       {/* Main Content */}
-      <div className="flex-1 flex flex-col justify-end md:justify-center px-4 sm:px-6 md:px-12 lg:px-20 pt-20 md:pt-24 pb-4 md:pb-8">
+      <div className="flex-1 flex flex-col justify-start md:justify-center px-[5vw] md:px-12 lg:px-20 pt-[20vh] md:pt-24 pb-6 md:pb-8">
         {/* Hero Typography */}
         <div className="w-full">
           {/* Line 1 */}
           <div ref={line1Ref} className="overflow-hidden">
             <h1
-              className="text-[14vw] sm:text-[13vw] md:text-[11vw] lg:text-[10vw] leading-[0.85] tracking-tight text-[#0F172A] uppercase"
+              className="text-[16.5vw] sm:text-[14vw] md:text-[11vw] lg:text-[10vw] leading-[0.75] tracking-tight text-[#0F172A] uppercase font-semibold"
               style={{ fontFamily: "'FoundersGrotesk', sans-serif", fontWeight: 600 }}
             >
               We Create
@@ -75,7 +75,7 @@ const HomeHero = () => {
           <div ref={line2Ref} className="overflow-hidden flex items-center gap-2 md:gap-4">
             {/* Small video/image badge */}
             <div
-              className="relative w-[16vw] sm:w-[14vw] md:w-[12vw] h-[8vw] sm:h-[7vw] md:h-[7vw] lg:h-[6.5vw] rounded-md overflow-hidden flex-shrink-0 mt-[1vw]"
+              className="relative w-[18vw] sm:w-[15vw] md:w-[12vw] h-[10vw] sm:h-[8.5vw] md:h-[7vw] lg:h-[6.5vw] rounded-md overflow-hidden flex-shrink-0 mt-[0.5vw]"
               style={{ background: 'linear-gradient(135deg, #df1612 0%, #b7120e 100%)' }}
             >
               <div className="absolute inset-0 flex items-center justify-center">
@@ -88,7 +88,7 @@ const HomeHero = () => {
               <div className="absolute bottom-1.5 left-2 sm:bottom-2 sm:left-3 w-4 h-3 sm:w-6 sm:h-4 md:w-8 md:h-6 bg-white/90 rounded-sm" />
             </div>
             <h1
-              className="text-[14vw] sm:text-[13vw] md:text-[11vw] lg:text-[10vw] leading-[0.85] tracking-tight text-[#0F172A] uppercase"
+              className="text-[16.5vw] sm:text-[14vw] md:text-[11vw] lg:text-[10vw] leading-[0.75] tracking-tight text-[#0F172A] uppercase font-semibold"
               style={{ fontFamily: "'FoundersGrotesk', sans-serif", fontWeight: 600 }}
             >
               Eye-Opening
@@ -98,7 +98,7 @@ const HomeHero = () => {
           {/* Line 3 */}
           <div ref={line3Ref} className="overflow-hidden">
             <h1
-              className="text-[14vw] sm:text-[13vw] md:text-[11vw] lg:text-[10vw] leading-[0.85] tracking-tight text-[#0F172A] uppercase"
+              className="text-[16.5vw] sm:text-[14vw] md:text-[11vw] lg:text-[10vw] leading-[0.75] tracking-tight text-[#0F172A] uppercase font-semibold"
               style={{ fontFamily: "'FoundersGrotesk', sans-serif", fontWeight: 600 }}
             >
               Experiences
@@ -110,12 +110,12 @@ const HomeHero = () => {
       {/* Bottom Bar */}
       <div
         ref={bottomRef}
-        className="w-full border-t border-gray-200 px-4 sm:px-6 md:px-12 lg:px-20 py-4 md:py-6"
+        className="w-full border-t border-gray-200 px-[5vw] md:px-12 lg:px-20 py-5 md:py-6"
       >
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-4">
           {/* Left tagline */}
           <p
-            className="text-xs sm:text-sm md:text-base text-[#475569] order-2 sm:order-1"
+            className="text-[15px] md:text-base text-[#475569] order-1 sm:order-1 leading-relaxed"
             style={{ fontFamily: "'NeueMontreal', sans-serif", fontWeight: 400 }}
           >
             For brands that want to stand out
@@ -123,14 +123,14 @@ const HomeHero = () => {
 
           {/* Center tagline */}
           <p
-            className="text-sm md:text-base text-[#475569] hidden md:block order-2"
+            className="text-[15px] md:text-base text-[#475569] order-2 leading-relaxed"
             style={{ fontFamily: "'NeueMontreal', sans-serif", fontWeight: 400 }}
           >
             From concept to conversion
           </p>
 
           {/* CTA Button */}
-          <div className="order-1 sm:order-3 w-full sm:w-auto">
+          <div className="order-3 sm:order-3 w-full sm:w-auto">
             <RoundButton
               title="Start The Project"
               href="/contact"
@@ -139,9 +139,6 @@ const HomeHero = () => {
           </div>
         </div>
       </div>
-
-      {/* Scroll indicator line */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1px] h-8 bg-gray-300 hidden md:block" />
     </section>
   );
 };
