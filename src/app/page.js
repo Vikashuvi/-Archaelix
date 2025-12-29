@@ -33,8 +33,9 @@ export default function Home() {
 
   const menuItems = [
     { label: "Home", link: "/" },
-    { label: "Work", link: "/work" },
-    { label: "About", link: "/about" },
+    { label: "Digital Marketing", link: "/services/digital-marketing" },
+    { label: "IT Services", link: "/services/it-services" },
+    { label: "Novix Studios", link: "/services/novix-studios" },
     { label: "Contact", link: "/contact" },
   ];
 

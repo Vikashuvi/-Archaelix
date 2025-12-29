@@ -1,16 +1,33 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import StaggeredMenu from '../../../components/StaggeredMenu';
 import Footer from '../../../components/Footer';
 import SmoothScroll from '../../../components/SmoothScroll';
+import SplashScreen from '../../../components/SplashScreen';
 
 export default function NovixStudiosPage() {
+    const [splashComplete, setSplashComplete] = useState(false);
+
+    // Lock scroll during splash screen
+    useEffect(() => {
+        if (!splashComplete) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [splashComplete]);
+
     const menuItems = [
         { label: "Home", link: "/" },
-        { label: "Work", link: "/work" },
-        { label: "About", link: "/about" },
+        { label: "Digital Marketing", link: "/services/digital-marketing" },
+        { label: "IT Services", link: "/services/it-services" },
+        { label: "Novix Studios", link: "/services/novix-studios" },
         { label: "Contact", link: "/contact" },
     ];
 
@@ -50,6 +67,9 @@ export default function NovixStudiosPage() {
     return (
         <>
             <SmoothScroll />
+
+            {/* Splash Screen */}
+            <SplashScreen onComplete={() => setSplashComplete(true)} />
 
             <div className="w-full min-h-screen bg-white">
                 <StaggeredMenu
@@ -169,3 +189,4 @@ export default function NovixStudiosPage() {
         </>
     );
 }
+
