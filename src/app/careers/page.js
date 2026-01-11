@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { gsap } from 'gsap';
 import StaggeredMenu from '../../components/StaggeredMenu';
 import Footer from '../../components/Footer';
 import SmoothScroll from '../../components/SmoothScroll';
@@ -19,6 +20,39 @@ export default function CareersPage() {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
+
+            // Trigger Hero Animations
+            const tl = gsap.timeline();
+
+            tl.to('.hero-line-1', {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: "power4.out",
+                delay: 0.2
+            })
+                .to('.hero-line-2', {
+                    x: 0,
+                    opacity: 1,
+                    duration: 1.5,
+                    ease: "power4.out"
+                }, "<0.15")
+                .to('.hero-line-3', {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.5,
+                    ease: "power4.out"
+                }, "<0.15")
+                .to('.hero-scale-anim', {
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power2.out"
+                }, "-=1")
+                .to('.hero-fade-anim', {
+                    opacity: 1,
+                    duration: 1,
+                    stagger: 0.2
+                }, "-=0.8");
         }
 
         return () => {
@@ -121,23 +155,25 @@ export default function CareersPage() {
                     <div className="container mx-auto max-w-[95%] relative z-10">
                         <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
                             <div className="w-full lg:w-3/4">
-                                <h1 className="text-[13vw] sm:text-[11vw] leading-[0.8] font-semibold uppercase mb-6" style={{ fontFamily: "'FoundersGrotesk', sans-serif", letterSpacing: '0.001em' }}>
-                                    <span className="block overflow-hidden">
-                                        <span className="block">Grow Your</span>
-                                    </span>
-                                    <span className="block overflow-hidden">
-                                        <span className="block italic text-[#df1612]">Career</span>
-                                    </span>
-                                    <span className="block overflow-hidden">
-                                        <span className="block">At Archaelix</span>
-                                    </span>
-                                </h1>
+                                <div className="mb-6">
+                                    <h1 className="text-[13vw] sm:text-[11vw] leading-[0.8] font-semibold uppercase" style={{ fontFamily: "'FoundersGrotesk', sans-serif", letterSpacing: '0.002em' }}>
+                                        <div className="overflow-hidden">
+                                            <span className="hero-line-1 block translate-y-full opacity-0">Grow Your</span>
+                                        </div>
+                                        <div className="overflow-hidden">
+                                            <span className="hero-line-2 block -translate-x-full opacity-0 italic text-[#df1612]">Career</span>
+                                        </div>
+                                        <div className="overflow-hidden">
+                                            <span className="hero-line-3 block translate-y-full opacity-0">At Archaelix</span>
+                                        </div>
+                                    </h1>
+                                </div>
                             </div>
                             <div className="w-full lg:w-1/4 pb-4 hidden md:block">
-                                <p className="text-xl leading-relaxed font-medium mb-8 max-w-xs ml-auto" style={{ fontFamily: "'NeueMontreal', sans-serif" }}>
+                                <p className="text-xl leading-relaxed font-medium mb-8 max-w-xs ml-auto opacity-0 hero-fade-anim" style={{ fontFamily: "'NeueMontreal', sans-serif" }}>
                                     Join a forward-thinking team defining the future of digital business.
                                 </p>
-                                <div className="flex justify-end">
+                                <div className="flex justify-end opacity-0 hero-fade-anim">
                                     <div className="animate-bounce">
                                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#df1612]">
                                             <path d="M12 4v16m0 0l-6-6m6 6l6-6" strokeLinecap="round" strokeLinejoin="round" />
@@ -148,7 +184,7 @@ export default function CareersPage() {
                         </div>
 
                         {/* Hero Image */}
-                        <div className="w-full h-[50vh] md:h-[70vh] rounded-[2rem] overflow-hidden relative group">
+                        <div className="w-full h-[50vh] md:h-[70vh] rounded-[2rem] overflow-hidden relative group opacity-0 hero-scale-anim">
                             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-700 z-10"></div>
                             <img
                                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop"
@@ -179,12 +215,12 @@ export default function CareersPage() {
                 {/* Why Work With Us Section */}
                 <section className="py-24 px-6 bg-white border-t border-gray-100">
                     <div className="container mx-auto max-w-6xl">
-                        <div className="flex flex-col md:flex-row gap-16 items-start">
-                            <div className="md:w-1/3 sticky top-32">
-                                <h2 className="text-5xl md:text-6xl font-semibold mb-6 tracking-tight uppercase" style={{ fontFamily: "'FoundersGrotesk', sans-serif" }}>
+                        <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
+                            <div className="w-full md:w-1/3 md:sticky md:top-32 md:self-start mb-12 md:mb-0 z-10">
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 tracking-tight uppercase" style={{ fontFamily: "'FoundersGrotesk', sans-serif" }}>
                                     Why With Us?
                                 </h2>
-                                <p className="text-lg text-gray-600 mb-8" style={{ fontFamily: "'NeueMontreal', sans-serif" }}>
+                                <p className="text-lg text-gray-600 mb-8 leading-relaxed" style={{ fontFamily: "'NeueMontreal', sans-serif" }}>
                                     At Archaelix, we believe that our people are our greatest strength. We foster a people-centric work environment.
                                 </p>
                                 <RoundButton
@@ -193,12 +229,12 @@ export default function CareersPage() {
                                     variant="dark"
                                 />
                             </div>
-                            <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 relative z-0">
                                 {culturePoints.map((point, i) => (
-                                    <div key={i} className="p-8 rounded-2xl bg-gray-50 hover:bg-[#df1612] hover:text-white transition-all duration-500 group border border-gray-100">
+                                    <div key={i} className="p-6 sm:p-8 rounded-2xl bg-gray-50 hover:bg-[#df1612] hover:text-white transition-all duration-500 group border border-gray-100 h-full">
                                         <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{point.icon}</div>
                                         <h3 className="text-2xl font-semibold mb-3 group-hover:text-white" style={{ fontFamily: "'FoundersGrotesk', sans-serif" }}>{point.title}</h3>
-                                        <p className="text-gray-600 group-hover:text-white/90" style={{ fontFamily: "'NeueMontreal', sans-serif" }}>{point.description}</p>
+                                        <p className="text-gray-600 group-hover:text-white/90 leading-relaxed" style={{ fontFamily: "'NeueMontreal', sans-serif" }}>{point.description}</p>
                                     </div>
                                 ))}
                             </div>
@@ -233,24 +269,7 @@ export default function CareersPage() {
                 </section>
 
                 {/* Open Positions Section */}
-                <section id="open-positions" className="py-32 px-6 bg-white relative overflow-hidden min-h-[60vh]">
-                    {/* Background "Diagonal Stick" Image Reveal */}
-                    <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
-                        {positions.map((pos, i) => (
-                            <div
-                                key={i}
-                                className={`absolute h-[600px] w-[150%] bg-cover bg-center transition-all duration-700 ease-out origin-center ${hoveredPosition === i
-                                        ? 'opacity-50 rotate-[25deg]'
-                                        : 'opacity-0 rotate-[25deg]'
-                                    }`}
-                                style={{
-                                    backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.8) 100%), url(${pos.image})`,
-                                    clipPath: hoveredPosition === i ? 'inset(0 0 0 0)' : 'inset(0 100% 0 0)',
-                                }}
-                            />
-                        ))}
-                    </div>
-
+                <section id="open-positions" className="py-24 md:py-32 px-6 bg-white relative overflow-hidden">
                     <div className="container mx-auto max-w-5xl relative z-10">
                         <h2 className="text-5xl md:text-7xl font-semibold mb-16 tracking-tight uppercase text-center" style={{ fontFamily: "'FoundersGrotesk', sans-serif" }}>
                             Open Positions
@@ -261,12 +280,12 @@ export default function CareersPage() {
                                     key={i}
                                     onMouseEnter={() => setHoveredPosition(i)}
                                     onMouseLeave={() => setHoveredPosition(null)}
-                                    className="group p-8 bg-white border border-gray-100 rounded-xl transition-all duration-300 cursor-pointer flex justify-between items-center shadow-md hover:shadow-2xl hover:-translate-y-1"
+                                    className="group p-8 bg-white border border-gray-100 rounded-xl transition-all duration-300 cursor-pointer flex justify-between items-center shadow-sm hover:shadow-xl hover:bg-[#df1612] hover:border-[#df1612] hover:-translate-y-1"
                                 >
-                                    <span className="text-xl md:text-2xl font-light transition-colors" style={{ fontFamily: "'NeueMontreal', sans-serif" }}>
+                                    <span className="text-xl md:text-2xl font-light transition-colors group-hover:text-white" style={{ fontFamily: "'NeueMontreal', sans-serif" }}>
                                         {pos.title}
                                     </span>
-                                    <div className="bg-gray-50 p-2 rounded-full group-hover:bg-[#df1612] group-hover:text-white transition-all duration-300">
+                                    <div className="bg-gray-50 text-black p-2 rounded-full group-hover:bg-white/20 group-hover:text-white transition-all duration-300">
                                         <svg className="w-5 h-5 transform group-hover:rotate-45 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                                     </div>
                                 </div>
